@@ -4,5 +4,7 @@ public class Encrypt {
     @Test
     public void checkWhetherInputIsString() {
 
+        //
+
     }
 }
