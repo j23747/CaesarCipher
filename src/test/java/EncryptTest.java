@@ -26,7 +26,7 @@ public class EncryptTest {
     @Test
     public void runEncrypt_ifEncryptsVariousInputs() {
         Encrypt testEncrypt = new Encrypt("!LAZY BROWN FOX JUMPS OVER A LAZY DOG2", 3);
-        // does not decrypt integers & other characters but returns them as is
+        // does not decrypt integers & other characters but returns them as it is
         assertEquals("!ODCB EURZQ IRA MXPSV RYHU D ODCB GRJ2",Encrypt.encrypt(testEncrypt));
     }
 }
