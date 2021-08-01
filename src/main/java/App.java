@@ -11,7 +11,7 @@ public class App {
 
             System.out.println("Welcome to my Caesar Cipher");
             System.out.println("============================");
-            System.out.println("Enter encrypt to encrypt or decrypt to decrypt or exit to leave the app");
+            System.out.println("Enter encrypt to encrypt or decrypt to decrypt or exit to leave the app...");
             String choice = myScanner.nextLine();
 
             if (choice.equals("encrypt")) {
@@ -30,11 +30,11 @@ public class App {
                 System.out.println("============================");
                 System.out.println("============================");
             } else if (choice.equals("decrypt")) {
-                System.out.println("To decrypt a message enter it below");
+                System.out.println("To decrypt a message enter it below...");
                 String sema = myScanner.nextLine();
                 System.out.println("============================");
 
-                System.out.println("Enter the key you used");
+                System.out.println("Enter the key you used...");
                 int namba = myScanner.nextInt();
                 System.out.println("============================");
                 Decrypt ceaser = new Decrypt(sema,namba);
