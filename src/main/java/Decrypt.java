@@ -1,30 +1,58 @@
-package CaesarCipher;
-
 public class Decrypt {
-    public static StringBuilder decryptClass(String decMessage, int decShift) {
-        StringBuilder decryptedResult = new StringBuilder();
 
-        if (decShift > 26) {
-            decShift = decShift % 26;
-        } else if (decShift < 0) {
-            decShift = (decShift % 26) + 26;
-        }
+    private String mInputString;
+    private int mShift;
 
-
-        for (int i = 0; i < decMessage.length(); i++) {
-            if (Character.isUpperCase(decMessage.charAt(i))) {
-                char character = (char) (((int) decMessage.charAt(i) -
-                        decShift - 65) % 26 + 65);
-                decryptedResult.append(character);
-            } else {
-                char character = (char) (((int) decMessage.charAt(i) -
-                        decShift - 97) % 26 + 97);
-                decryptedResult.append(character);
-            }
-
-        }
-
-        return decryptedResult;
+    public Decrypt(String mInputString, int mShift) {
+        this.mInputString = mInputString;
+        this.mShift = mShift;
     }
 
+    public String getmInputString(){
+        return mInputString;
+    }
+
+    public int getmShift(){
+        return mShift;
+    }
+
+    public static String decrypt(Decrypt decrypt){
+
+        if(decrypt.mShift > 26){
+            decrypt.mShift = decrypt.mShift % 26;
+        }
+        else if(decrypt.mShift < 0) {
+            decrypt.mShift = (decrypt.mShift % 26) + 26;
+        }
+
+        String outputString = "";
+        int length = decrypt.mInputString.length();
+        for (int i = 0; i < length ; i++) {
+            char cc = decrypt.mInputString.charAt(i);
+            if(Character.isLetter(cc)){
+                if(Character.isLowerCase(cc)){
+                    char c = (char)(cc-decrypt.mShift);
+                    if(c<'a'){
+                        outputString += (char)(cc + (26-decrypt.mShift));
+                    }
+                    else {
+                        outputString += c;
+                    }
+                }
+                else if(Character.isUpperCase(cc)){
+                    char c = (char)(cc-decrypt.mShift);
+                    if(c<'A'){
+                        outputString += (char)(cc + (26-decrypt.mShift));
+                    }
+                    else {
+                        outputString += c;
+                    }
+                }
+            }
+            else{
+                outputString += cc;
+            }
+        }
+        return outputString;
+    }
 }

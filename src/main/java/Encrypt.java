@@ -1,33 +1,58 @@
 
-
-
 public class Encrypt {
-    public  static  StringBuilder encryptClass(String message, int shift) {
-        StringBuilder encryptedResult = new StringBuilder();
+    private String mInputString;
+    private int mShift;
 
+    public String getmInputString(){
+        return mInputString;
+    }
 
-        if (shift > 25) {
-            shift   = shift % 26;
+    public int getmShift(){
+        return mShift;
+    }
 
-        } else  if (shift < 0) {
-            shift = (shift % 26) + 26;
+    public Encrypt(String mInputString, int mShift) {
+        this.mInputString = mInputString;
+        this.mShift = mShift;
+    }
+
+    public static String encrypt(Encrypt encrypt){
+
+        if(encrypt.mShift > 26){
+            encrypt.mShift = encrypt.mShift % 26;
+        }
+        else if(encrypt.mShift < 0) {
+            encrypt.mShift = (encrypt.mShift % 26) + 26;
         }
 
-        for ( int i = 0; i < message.length(); i++) {
-            if (Character.isUpperCase(message.charAt(i))) {
-                char character = (char) (((int) message.charAt(i) +
-                        shift - 65) % 26 + 65);
-                encryptedResult.append(character);
-
-            } else  {
-                char character = (char) (((int) message.charAt(i) +
-                        shift - 97) % 26 + 97);
-                encryptedResult.append(character);
+        String outputString = "";
+        int length = encrypt.mInputString.length();
+        for (int i = 0; i < length ; i++) {
+            char cc = encrypt.mInputString.charAt(i);
+            if(Character.isLetter(cc)){
+                if(Character.isLowerCase(cc)){
+                    char c = (char)(cc+encrypt.mShift);
+                    if(c>'z'){
+                        outputString += (char)(cc - (26-encrypt.mShift));
+                    }
+                    else {
+                        outputString += c;
+                    }
+                }
+                else if(Character.isUpperCase(cc)){
+                    char c = (char)(cc+encrypt.mShift);
+                    if(c>'Z'){
+                        outputString += (char)(cc - (26-encrypt.mShift));
+                    }
+                    else {
+                        outputString += c;
+                    }
+                }
+            }
+            else{
+                outputString += cc;
             }
         }
-        return  encryptedResult;
-
-
-
+        return outputString;
     }
 }
