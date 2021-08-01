@@ -15,8 +15,8 @@ This program uses the Caesar Cipher method of encryption to encrypt the messages
 
 # BDD
 Behaviour	Input	Output
-Encrypt: "Hello"	key: 4	Encrypted: "Lipps"
-Decrypt: "Lipps"	key used: 4	Decrypted: "Hello"
+- Encrypt: "Hello"	key: 4	Encrypted: "Lipps"
+- Decrypt: "Lipps"	key used: 4	Decrypted: "Hello"
 # Setup Installation Requirement
 To access this project, you will need to access it from github then clone it. Then run 'java App' on your terminal.
 
