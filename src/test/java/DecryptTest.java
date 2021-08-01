@@ -1,6 +1,9 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 
+
+// Decrypt test
+
 public class DecryptTest {
 
     @Test
@@ -23,7 +26,7 @@ public class DecryptTest {
     @Test
     public void runDecrypt_ifDecryptsVariousInputs() {
         Decrypt testDecrypt = new Decrypt("!ODCB EURZQ IRA MXPSV RYHU D ODCB GRJ2", 3);
-        // does not decrypt integers and other characters but returns them as is
+        // this does not decrypt integers and other characters but returns them as is
         assertEquals("!LAZY BROWN FOX JUMPS OVER A LAZY DOG2", Decrypt.decrypt(testDecrypt));
     }
 }
